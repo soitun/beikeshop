@@ -30,7 +30,6 @@ Route::prefix('api')
         Route::delete('carts/{cart}', [\Beike\API\Controllers\CartController::class, 'destroy']);
     });
 
-
 Route::prefix('admin_api')
     ->middleware(['admin_api'])
     ->name('admin_api.')

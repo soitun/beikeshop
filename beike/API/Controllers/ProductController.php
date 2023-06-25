@@ -23,11 +23,10 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $filterData = $request->only('attr', 'price', 'sort', 'order', 'per_page', 'category_id');
-        $products = ProductRepo::getBuilder($filterData)->with('inCurrentWishlist')->paginate($filterData['per_page'] ?? perPage());
+        $products   = ProductRepo::getBuilder($filterData)->with('inCurrentWishlist')->paginate($filterData['per_page'] ?? perPage());
 
         return ProductSimple::collection($products);
     }
-
 
     public function show(Request $request, Product $product)
     {
