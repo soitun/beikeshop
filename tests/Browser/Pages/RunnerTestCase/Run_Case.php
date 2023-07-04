@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * BrandController.php
+ *
+ * @copyright  2022 beikeshop.com - All Rights Reserved
+ * @link       https://beikeshop.com
+ * @author     licy <licy@guangda.work>
+ * @created    2023-06-06 17:17:04
+ * @modified   2023-06-06 17:17:04
+ */
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
 use PHPUnit\Framework\TestSuite;
@@ -32,6 +40,9 @@ $suite = new TestSuite();
     $suite->addTestFile('.\tests\Browser\Pages\admin\GoVipTest.php'); //跳转vip界面
     $suite->addTestFile('.\tests\Browser\Pages\admin\LanguageSwitchTest.php'); //切换语言
     $suite->addTestFile('.\tests\Browser\Pages\admin\AddExpressTest.php'); //添加快递公司
+    $suite->addTestFile('.\tests\Browser\Pages\admin\AddProductBrandsTest.php'); //添加商品品牌
+    $suite->addTestFile('.\tests\Browser\Pages\admin\EditProductBrandsTest.php'); //编辑商品品牌
+    $suite->addTestFile('.\tests\Browser\Pages\admin\DelProductBrandsTest.php'); //删除商品品牌
 
 //前后台联测
     $suite->addTestFile('.\tests\Browser\Pages\combine\AlterOrderStationTest.php'); //订单状态修改 已支付-已发货-一已完成

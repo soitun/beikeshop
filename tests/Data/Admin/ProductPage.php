@@ -10,9 +10,9 @@ public const Product_Top = [
     //编辑商品按钮
     'edit_product' => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(1) > td.text-end > a.btn.btn-outline-secondary.btn-sm',
     //删除按钮
-    'del_product' => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(1) > td.text-end > a.btn.btn-outline-danger.btn-sm', //创建商品按钮
+    'del_product' => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(2) > td.text-end > a.btn.btn-outline-danger.btn-sm', //创建商品按钮
     'sure_btn'    => '确定',
-    'get_name'    => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(1) > td:nth-child(4) > a',
+    'get_name'    => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(2) > td:nth-child(4) > a',
 ];
 
 public const Product_Left = [
@@ -29,6 +29,23 @@ public const Product_Left = [
 public const Cre_class = [
     'cre_cate_btn' => '#category-app > div > a', //创建分类按钮
 
+];
+
+public const Cre_brand = [
+    'cre_brand_btn'      => '#customer-app > div.card-body > div.d-flex.justify-content-between.mb-4 > button', //创建分类按钮品牌按钮
+    'edit_brand_btn'     => '#customer-app > div.card-body > div.table-push > table > tbody > tr:nth-child(1) > td:nth-child(7) > button.btn.btn-outline-secondary.btn-sm',
+    'del_brand_btn'      => '#customer-app > div.card-body > div.table-push > table > tbody > tr:nth-child(1) > td:nth-child(7) > button.btn.btn-outline-danger.btn-sm.ml-1',
+    'brand_name'         => '#customer-app > div.el-dialog__wrapper > div > div.el-dialog__body > form > div:nth-child(1) > div > div > input',
+    'brand_img'          => '.bi.bi-plus.fs-1.text-muted',
+    'brand_first_letter' => '#customer-app > div.el-dialog__wrapper > div > div.el-dialog__body > form > div:nth-child(3) > div > div > input',
+    'save_btn'           => '#customer-app > div.el-dialog__wrapper > div > div.el-dialog__body > form > div:nth-child(6) > div > button.el-button.el-button--primary',
+    'del_sure_btn'       => '.el-button.el-button--default.el-button--small.el-button--primary',
+];
+
+public const Mg_Images = [ //图片管理器
+
+    'first_img'    => '#filemanager-wrap-app > div.filemanager-content > div.content-center > div:nth-child(2)', //选择第一张图片
+    'choose_btn'   => '#filemanager-wrap-app > div.filemanager-content > div.content-head > div.left.d-lg-flex > button',
 ];
 
 public const Assert = [
