@@ -26,6 +26,7 @@ Route::prefix('api')
         Route::get('products/{product}', [\Beike\API\Controllers\ProductController::class, 'show']);
 
         Route::get('carts', [\Beike\API\Controllers\CartController::class, 'index']);
+        Route::post('carts', [\Beike\API\Controllers\CartController::class, 'store']);
         Route::put('carts/{cart}', [\Beike\API\Controllers\CartController::class, 'update']);
         Route::delete('carts/{cart}', [\Beike\API\Controllers\CartController::class, 'destroy']);
     });
