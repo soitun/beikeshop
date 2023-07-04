@@ -29,6 +29,10 @@ Route::prefix('api')
         Route::post('carts', [\Beike\API\Controllers\CartController::class, 'store']);
         Route::put('carts/{cart}', [\Beike\API\Controllers\CartController::class, 'update']);
         Route::delete('carts/{cart}', [\Beike\API\Controllers\CartController::class, 'destroy']);
+
+        Route::get('checkout', [\Beike\API\Controllers\CheckoutController::class, 'index']);
+        Route::put('checkout', [\Beike\API\Controllers\CheckoutController::class, 'update']);
+        Route::post('checkout/confirm', [\Beike\API\Controllers\CheckoutController::class, 'confirm']);
     });
 
 Route::prefix('admin_api')
