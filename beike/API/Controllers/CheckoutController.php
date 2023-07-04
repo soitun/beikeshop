@@ -21,6 +21,7 @@ class CheckoutController extends Controller
     {
         try {
             $data = (new CheckoutService)->checkoutData();
+
             return hook_filter('checkout.index.data', $data);
         } catch (\Exception $e) {
             return json_fail($e->getMessage());

@@ -27,9 +27,9 @@ class CartController extends Controller
     public function store(CartRequest $request)
     {
         try {
-            $skuId = $request->get('sku_id');
+            $skuId    = $request->get('sku_id');
             $quantity = $request->get('quantity', 1);
-            $buyNow = (bool)$request->get('buy_now', false);
+            $buyNow   = (bool) $request->get('buy_now', false);
             $customer = current_customer();
 
             $sku = ProductSku::query()
@@ -53,7 +53,7 @@ class CartController extends Controller
     {
         try {
             $customer = current_customer();
-            $quantity = (int)$request->get('quantity');
+            $quantity = (int) $request->get('quantity');
             CartService::updateQuantity($customer, $cartId, $quantity);
 
             $data = CartService::reloadData();
