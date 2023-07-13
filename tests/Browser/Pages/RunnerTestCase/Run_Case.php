@@ -35,8 +35,8 @@ $suite = new TestSuite();
     $suite->addTestFile('.\tests\Browser\Pages\admin\GoCatalogTest.php'); //跳转前台
     $suite->addTestFile('.\tests\Browser\Pages\admin\GopLuginsTest.php'); //跳转插件市场
     $suite->addTestFile('.\tests\Browser\Pages\admin\AddProductTest.php'); //添加商品
-    $suite->addTestFile('.\tests\Browser\Pages\admin\EditProductTest.php'); //编辑商品
     $suite->addTestFile('.\tests\Browser\Pages\admin\DelProductTest.php'); //删除商品
+    $suite->addTestFile('.\tests\Browser\Pages\admin\EditProductTest.php'); //编辑商品
     $suite->addTestFile('.\tests\Browser\Pages\admin\GoVipTest.php'); //跳转vip界面
     $suite->addTestFile('.\tests\Browser\Pages\admin\LanguageSwitchTest.php'); //切换语言
     $suite->addTestFile('.\tests\Browser\Pages\admin\AddExpressTest.php'); //添加快递公司

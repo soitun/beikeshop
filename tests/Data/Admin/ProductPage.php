@@ -8,7 +8,7 @@ public const Product_Top = [
     'login_url'      => '/Admin/products',
     'create_product' => '#product-app > div > div > div.d-flex.justify-content-between.my-4 > a > button', //创建商品按钮
     //编辑商品按钮
-    'edit_product' => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(1) > td.text-end > a.btn.btn-outline-secondary.btn-sm',
+    'edit_product' => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(2) > td.text-end > a.btn.btn-outline-secondary.btn-sm',
     //删除按钮
     'del_product' => '#product-app > div > div > div.table-push > table > tbody > tr:nth-child(2) > td.text-end > a.btn.btn-outline-danger.btn-sm', //创建商品按钮
     'sure_btn'    => '确定',
@@ -28,7 +28,10 @@ public const Product_Left = [
 
 public const Cre_class = [
     'cre_cate_btn' => '#category-app > div > a', //创建分类按钮
-
+    'edit_cate_btn' => '#category-app > div > div > div > div.el-tree-node.is-current.is-focusable > div > div > div.d-flex.align-items-center > div > a.btn.btn-outline-secondary.btn-sm', //编辑分类按钮
+    'del_cate_btn' => '.btn.btn-outline-danger.btn-sm', //删除分类按钮
+    'del_cate_text' => '#category-app > div > div > div > div:nth-child(1) > div > div > div:nth-child(1) > span', //创建分类按钮
+    'sure_del_btn' => '.el-button.el-button--default.el-button--small.el-button--primary ', //确定删除按钮
 ];
 
 public const Cre_brand = [
@@ -39,7 +42,7 @@ public const Cre_brand = [
     'brand_img'          => '.bi.bi-plus.fs-1.text-muted',
     'brand_first_letter' => '#customer-app > div.el-dialog__wrapper > div > div.el-dialog__body > form > div:nth-child(3) > div > div > input',
     'save_btn'           => '#customer-app > div.el-dialog__wrapper > div > div.el-dialog__body > form > div:nth-child(6) > div > button.el-button.el-button--primary',
-    'del_sure_btn'       => '.el-button.el-button--default.el-button--small.el-button--primary',
+    'del_sure_btn'       => '.el-button.el-button--default.el-button--small.el-button--primary ',
 ];
 
 public const Mg_Images = [ //图片管理器
