@@ -49,11 +49,14 @@ $suite = new TestSuite();
     $suite->addTestFile('.\tests\Browser\Pages\combine\CancelOrderTest.php'); //取消商品订单
     $suite->addTestFile('.\tests\Browser\Pages\combine\CloseVisiterCheckoutTest.php'); //禁用游客结账
     $suite->addTestFile('.\tests\Browser\Pages\combine\OpenVisiterCheckoutTest.php'); //开启游客结账
-    $suite->addTestFile('.\tests\Browser\Pages\combine\CreateCategoriesTest.php'); //添加商品分类
     $suite->addTestFile('.\tests\Browser\Pages\combine\DisableProductTest.php'); //禁用商品
     $suite->addTestFile('.\tests\Browser\Pages\combine\EnableProductTest.php'); //启用商品
     $suite->addTestFile('.\tests\Browser\Pages\combine\UnderstockOrderTest.php'); //库存不足下单
     $suite->addTestFile('.\tests\Browser\Pages\combine\CustomerGroupDiscountTest.php'); //客户组折扣检验
+    $suite->addTestFile('.\tests\Browser\Pages\combine\CreateCategoriesTest.php'); //增加商品分类
+    $suite->addTestFile('.\tests\Browser\Pages\combine\AlterCategoriesTest.php'); //更改商品分类
+    $suite->addTestFile('.\tests\Browser\Pages\combine\DelCategoriesTest.php'); //删除商品分类
+
 
 //后台删除用户操作
     $suite->addTestFile('.\tests\Browser\Pages\admin\AddCustomerTest.php'); //创建用户
