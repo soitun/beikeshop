@@ -9,7 +9,7 @@
  * @modified   2023-07-13 15:17:04
  */
 
-namespace Tests\Browser\Pages\Combinea;
+namespace Tests\Browser\Pages\Combine;
 
 use Laravel\Dusk\Browser;
 use Tests\Data\Admin\AdminLoginPage;
@@ -22,7 +22,7 @@ use Tests\Data\Catalog\IndexPage;
 use Tests\DuskTestCase;
 
 //修改商品分类
-class AlterCategoriesTest extends DuskTestCase
+class gitAlterCategoriesTest extends DuskTestCase
 {
     public function testAlterCategories()
     {

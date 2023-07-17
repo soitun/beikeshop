@@ -14,11 +14,8 @@ namespace Tests\Browser\Pages\Combinea;
 use Laravel\Dusk\Browser;
 use Tests\Data\Admin\AdminLoginPage;
 use Tests\Data\Admin\AdminPage;
-use Tests\Data\Admin\CreCategories;
-use Tests\Data\Admin\CreCategoriesPage;
 use Tests\Data\Admin\LoginData;
 use Tests\Data\Admin\ProductPage;
-use Tests\Data\Catalog\IndexPage;
 use Tests\DuskTestCase;
 
 //删除商品分类

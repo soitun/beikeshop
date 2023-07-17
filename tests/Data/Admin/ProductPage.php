@@ -27,11 +27,11 @@ public const Product_Left = [
 ];
 
 public const Cre_class = [
-    'cre_cate_btn' => '#category-app > div > a', //创建分类按钮
+    'cre_cate_btn'  => '#category-app > div > a', //创建分类按钮
     'edit_cate_btn' => '#category-app > div > div > div > div.el-tree-node.is-current.is-focusable > div > div > div.d-flex.align-items-center > div > a.btn.btn-outline-secondary.btn-sm', //编辑分类按钮
-    'del_cate_btn' => '.btn.btn-outline-danger.btn-sm', //删除分类按钮
+    'del_cate_btn'  => '.btn.btn-outline-danger.btn-sm', //删除分类按钮
     'del_cate_text' => '#category-app > div > div > div > div:nth-child(1) > div > div > div:nth-child(1) > span', //创建分类按钮
-    'sure_del_btn' => '.el-button.el-button--default.el-button--small.el-button--primary ', //确定删除按钮
+    'sure_del_btn'  => '.el-button.el-button--default.el-button--small.el-button--primary ', //确定删除按钮
 ];
 
 public const Cre_brand = [

@@ -57,7 +57,6 @@ $suite = new TestSuite();
     $suite->addTestFile('.\tests\Browser\Pages\combine\AlterCategoriesTest.php'); //更改商品分类
     $suite->addTestFile('.\tests\Browser\Pages\combine\DelCategoriesTest.php'); //删除商品分类
 
-
 //后台删除用户操作
     $suite->addTestFile('.\tests\Browser\Pages\admin\AddCustomerTest.php'); //创建用户
     $suite->addTestFile('.\tests\Browser\Pages\admin\EditCustomerTest.php'); //修改用户信息
