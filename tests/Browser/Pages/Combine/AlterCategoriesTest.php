@@ -22,7 +22,7 @@ use Tests\Data\Catalog\IndexPage;
 use Tests\DuskTestCase;
 
 //修改商品分类
-class gitAlterCategoriesTest extends DuskTestCase
+class AlterCategoriesTest extends DuskTestCase
 {
     public function testAlterCategories()
     {

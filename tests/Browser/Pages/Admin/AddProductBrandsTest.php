@@ -47,14 +47,14 @@ class AddProductBrandsTest extends DuskTestCase
                 ->type(ProductPage::Cre_brand['brand_name'], CreBrandsData::Brands_Info['brand_name'])
                 //从图片管理器选择图片
                 ->press(ProductPage::Cre_brand['brand_img'])
-                ->pause(4000)
+                ->pause(6000)
                 //切换窗体
                 ->withinFrame('#layui-layer-iframe1', function ($brower) {
                     $brower->click(ProductPage::Mg_Images['first_img'])
                             ->press(ProductPage::Mg_Images['choose_btn']);
                 })
                 ->driver->switchTo()->defaultContent();
-                $browser->pause(3000)
+                $browser->pause(2000)
                 ->type(ProductPage::Cre_brand['brand_first_letter'], CreBrandsData::Brands_Info['brand_first_letter'])
                 //5.点击保存
                 ->press(ProductPage::Cre_brand['save_btn'])
