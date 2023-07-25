@@ -23,4 +23,17 @@ public const Order_Status = [
 public const Get_Order_Status = [
     'status_text' => '.table.table-borderless.mb-0 tbody tr:first-child td:nth-child(3)', //获取当前状态
 ];
+
+public const Paypal_Plugin = [
+    'Paypal_iframe'=>'#paypal-button-container',
+    'Paypal_foot'=>'.css-ltr-1ccpklf',
+    'Paypal_Login' => '登录', //获取当前状态
+    'Paypal_Email'=>'#email',
+    'Next_Btn'=>'#btnNext',
+    'Paypal_Pwd'=>'#password',
+    'Login_Btn'=>'#btnLogin',
+    'Payment_Method'=>'#hermione-container > div > main > div.PaymentOptions_container_1ELkE > section > div:nth-child(3) > div:nth-child(1) > div > div.FundingInstrument_item_3lQ2z > div.VerticalRadioButton_container_3W21c > div > label > span > span',
+    'Submit_Btn'=>'#payment-submit-btn',
+
+];
 }
