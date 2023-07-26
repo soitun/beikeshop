@@ -38,9 +38,9 @@ public const Index_Cart = [
     'cart_Checkout'     => '#offcanvas-right-cart > div.offcanvas-footer > div.p-4 > a.btn.w-100.fw-bold.btn-dark.to-checkout',
 ];
 
-    public const Index_Account = [
-        'login_icon' => '.navbar-nav.flex-row li:nth-child(3)', //登录图标
-    ];
+public const Index_Account = [
+    'login_icon' => '.navbar-nav.flex-row li:nth-child(3)', //登录图标
+];
 
 public const Index_Login = [
     'login_icon' => '.navbar-nav.flex-row li:nth-child(3)', //登录图标

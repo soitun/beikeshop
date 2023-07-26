@@ -5,8 +5,8 @@
  * @copyright  2022 beikeshop.com - All Rights Reserved
  * @link       https://beikeshop.com
  * @author     licy <licy@guangda.work>
- * @created    2023-06-06 17:17:04
- * @modified   2023-06-06 17:17:04
+ * @created    2023-07-20 17:17:04
+ * @modified   2023-07-25 10:10:04
  */
 
 namespace Tests\Browser\Pages\Front;
@@ -54,7 +54,7 @@ class PaypalOrderTest extends DuskTestCase
                 ->click(OrderPage::Paypal_Plugin['Paypal_iframe']);
                 //定位到弹出的paypal窗体
                 $popupWindowHandle = null;
-                $mainWindowHandle = $browser->driver->getWindowHandle();
+                $mainWindowHandle  = $browser->driver->getWindowHandle();
 
                 // 获取所有窗口句柄
                 foreach ($browser->driver->getWindowHandles() as $windowHandle) {
@@ -64,6 +64,7 @@ class PaypalOrderTest extends DuskTestCase
                 // 判断当前窗口是否为弹窗窗口，可以根据标题、URL 或其他标识进行判断
                 if (strpos($browser->driver->getTitle(), 'PayPal') !== false) {
                     $popupWindowHandle = $windowHandle;
+
                     break;
                     }
                 }
@@ -86,8 +87,8 @@ class PaypalOrderTest extends DuskTestCase
                     ->type(OrderPage::Paypal_Plugin['Paypal_Pwd'], PaymentData::Payment_Paypal['Paypal_Pwd'])//输入密码
                     ->press(OrderPage::Paypal_Plugin['Paypal_Login'])//点击登录
                     ->pause(5000)
-                    ->click(OrderPage::Paypal_Plugin['Payment_Method'],)//选择支付方式
-                    ->press(OrderPage::Paypal_Plugin['Submit_Btn'],)//点击完成购物
+                    ->click(OrderPage::Paypal_Plugin['Payment_Method'])//选择支付方式
+                    ->press(OrderPage::Paypal_Plugin['Submit_Btn'])//点击完成购物
                     ->pause(5000);
                 }
 
@@ -98,7 +99,4 @@ class PaypalOrderTest extends DuskTestCase
 
             });
     }
-
 }
-
-

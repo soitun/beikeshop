@@ -5,12 +5,15 @@
  * @copyright  2022 beikeshop.com - All Rights Reserved
  * @link       https://beikeshop.com
  * @author     licy <licy@guangda.work>
- * @created    2023-06-06 17:17:04
- * @modified   2023-06-06 17:17:04
+ * @created    2023-07-26 10:10:04
+ * @modified   2023-07-26 10:10:04
  */
 
 namespace Tests\Browser\Pages\Front;
 
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverWait;
 use Laravel\Dusk\Browser;
 use Tests\Data\Catalog\AccountPage;
 use Tests\Data\Catalog\CataLoginData;
@@ -21,11 +24,8 @@ use Tests\Data\Catalog\OrderPage;
 use Tests\Data\Catalog\PaymentData;
 use Tests\Data\Catalog\ProductOne;
 use Tests\DuskTestCase;
-use Facebook\WebDriver\WebDriverBy;
-use Facebook\WebDriver\WebDriverExpectedCondition;
-use Facebook\WebDriver\WebDriverWait;
 
-//已注册客户且有地址，在下单时更换支付方式购买
+//已注册客户且有地址，在下单时更换stripe支付方式购买
 class StripeOrderTest extends DuskTestCase
 {
     public function testChangePayMethod()
@@ -57,35 +57,35 @@ class StripeOrderTest extends DuskTestCase
                 ->press(CheckoutPage::Checkout['submit'])
                 ->pause(5000)
                 //填写卡号信息
-                ->type(OrderPage::Stripe_Plugin['Cardholder_Name'],PaymentData::Payment_Stripe['Cardholder_Name']);
+                ->type(OrderPage::Stripe_Plugin['Cardholder_Name'], PaymentData::Payment_Stripe['Cardholder_Name']);
                 //切换窗口
                 //填写卡号
-                $wait = new WebDriverWait($browser->driver, 10);
+                $wait          = new WebDriverWait($browser->driver, 10);
                 $iframeElement = $wait->until(WebDriverExpectedCondition::presenceOfElementLocated(
                     WebDriverBy::cssSelector('#card-number-element > div > iframe')
                 ));
                 $browser->driver->switchTo()->frame($iframeElement);
-                $browser->type(OrderPage::Stripe_Plugin['Card_Number'],PaymentData::Payment_Stripe['Card_Number'])
+                $browser->type(OrderPage::Stripe_Plugin['Card_Number'], PaymentData::Payment_Stripe['Card_Number'])
                 ->driver->switchTo()->defaultContent();
 
                 //填写过期时间
-                $wait = new WebDriverWait($browser->driver, 10);
+                $wait          = new WebDriverWait($browser->driver, 10);
                 $iframeElement = $wait->until(WebDriverExpectedCondition::presenceOfElementLocated(
                     WebDriverBy::cssSelector('#card-expiry-element > div > iframe')
                 ));
                 $browser->driver->switchTo()->frame($iframeElement);
                 $browser->pause(5000)
-                ->type(OrderPage::Stripe_Plugin['Expiration_Date'],PaymentData::Payment_Stripe['Expiration_Date'])
+                ->type(OrderPage::Stripe_Plugin['Expiration_Date'], PaymentData::Payment_Stripe['Expiration_Date'])
                 ->driver->switchTo()->defaultContent();
 
                 // 填写cvv
-                $wait = new WebDriverWait($browser->driver, 10);
+                $wait          = new WebDriverWait($browser->driver, 10);
                 $iframeElement = $wait->until(WebDriverExpectedCondition::presenceOfElementLocated(
                     WebDriverBy::cssSelector('#card-cvc-element > div > iframe')
                 ));
                 $browser->driver->switchTo()->frame($iframeElement)
                 ->wait(OrderPage::Stripe_Plugin['Card_Number']);
-                $browser->type(OrderPage::Stripe_Plugin['CVV'],PaymentData::Payment_Stripe['CVV'])
+                $browser->type(OrderPage::Stripe_Plugin['CVV'], PaymentData::Payment_Stripe['CVV'])
                 ->driver->switchTo()->defaultContent();
                 $browser->press(OrderPage::Stripe_Plugin['Submit_Btn'])
                 ->pause(5000)
