@@ -36,4 +36,13 @@ public const Paypal_Plugin = [
     'Submit_Btn'=>'#payment-submit-btn',
 
 ];
+    public const Stripe_Plugin = [
+        'Cardholder_Name'=>'#card-cardholder-name > input',//Cardholder Name
+        'Card_Number'=>'.InputElement.is-empty.Input.Input--empty',//Card Number
+        'Expiration_Date'=>'#root > form > span:nth-child(4) > span > span > input',
+        'CVV'=>'#root > form > span:nth-child(4) > span > span > input',
+        'Submit_Btn'=>'.btn.btn-primary.btn-lg',
+        'Assert_Test'=>'Thank you for your order!'
+
+    ];
 }

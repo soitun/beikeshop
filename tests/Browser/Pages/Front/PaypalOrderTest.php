@@ -52,12 +52,12 @@ class PaypalOrderTest extends DuskTestCase
                 ->waitFor(OrderPage::Paypal_Plugin['Paypal_iframe'], 10)
                 //点击paypal支付按钮
                 ->click(OrderPage::Paypal_Plugin['Paypal_iframe']);
-            //定位到弹出的paypal窗体
-            $popupWindowHandle = null;
-            $mainWindowHandle = $browser->driver->getWindowHandle();
+                //定位到弹出的paypal窗体
+                $popupWindowHandle = null;
+                $mainWindowHandle = $browser->driver->getWindowHandle();
 
-            // 获取所有窗口句柄
-            foreach ($browser->driver->getWindowHandles() as $windowHandle) {
+                // 获取所有窗口句柄
+                foreach ($browser->driver->getWindowHandles() as $windowHandle) {
                 // 切换到每个窗口
                 $browser->driver->switchTo()->window($windowHandle);
 
@@ -65,14 +65,14 @@ class PaypalOrderTest extends DuskTestCase
                 if (strpos($browser->driver->getTitle(), 'PayPal') !== false) {
                     $popupWindowHandle = $windowHandle;
                     break;
+                    }
                 }
-            }
 
-            // 切换回主窗口
-            $browser->driver->switchTo()->window($mainWindowHandle);
+                // 切换回主窗口
+                $browser->driver->switchTo()->window($mainWindowHandle);
 
-            // 在弹窗中进行操作
-            if ($popupWindowHandle) {
+                // 在弹窗中进行操作
+                if ($popupWindowHandle) {
                 $browser->driver->switchTo()->window($popupWindowHandle);
                 $currentUrl = $browser->driver->getCurrentURL();
                 echo $currentUrl;
@@ -89,11 +89,11 @@ class PaypalOrderTest extends DuskTestCase
                     ->click(OrderPage::Paypal_Plugin['Payment_Method'],)//选择支付方式
                     ->press(OrderPage::Paypal_Plugin['Submit_Btn'],)//点击完成购物
                     ->pause(5000);
-            }
+                }
 
-            // 切换回主窗口
-            $browser->driver->switchTo()->window($mainWindowHandle);
-            $browser->pause(5000)
+                // 切换回主窗口
+                $browser->driver->switchTo()->window($mainWindowHandle);
+                $browser->pause(5000)
                 ->assertSeeIn(OrderPage::Get_Order_Status['status_text'], OrderPage::Order_Status['Paid']);
 
             });
