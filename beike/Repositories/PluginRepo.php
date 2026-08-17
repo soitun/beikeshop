@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use RuntimeException;
 
 class PluginRepo
 {
@@ -182,16 +183,24 @@ class PluginRepo
     {
         $migrationPath = "{$bPlugin->getPath()}/Migrations";
         if (is_dir($migrationPath)) {
-            $files = glob($migrationPath . '/*');
+            $files = glob($migrationPath . '/*.php');
             asort($files);
 
             foreach ($files as $file) {
-                $file = str_replace(base_path(), '', $file);
-                Artisan::call('migrate', [
+                $file     = str_replace(base_path(), '', $file);
+                $exitCode = Artisan::call('migrate', [
                     '--force' => true,
                     '--step'  => 1,
                     '--path'  => $file,
                 ]);
+
+                if ($exitCode !== 0) {
+                    throw new RuntimeException(sprintf(
+                        'Plugin migration failed: %s. %s',
+                        basename($file),
+                        trim(Artisan::output())
+                    ));
+                }
             }
         }
     }

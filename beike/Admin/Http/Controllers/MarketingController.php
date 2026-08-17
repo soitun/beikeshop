@@ -13,6 +13,7 @@
 namespace Beike\Admin\Http\Controllers;
 
 use Beike\Admin\Services\MarketingService;
+use Beike\Repositories\PluginRepo;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -130,6 +131,9 @@ class MarketingController
             MarketingService::getInstance()->download($pluginCode);
 
             if ($request->get('type') == 'update') {
+                $plugin = app('plugin')->getPluginOrFail($pluginCode);
+                PluginRepo::migrateDatabase($plugin);
+
                 return json_success(trans('admin/marketing.update_success'));
             }
 
