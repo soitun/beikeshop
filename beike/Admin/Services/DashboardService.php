@@ -315,9 +315,7 @@ class DashboardService
             $dateRange = $this->getDateRange($timeRange);
 
             // 访问量 (基于商品浏览) - 独立访客数
-            $visits = ProductView::whereBetween('created_at', $dateRange)
-                ->distinct(['customer_id', 'session_id', 'ip'])
-                ->count();
+            $visits = $this->countDistinctVisitors($dateRange);
 
             // 商品浏览量 - 商品浏览总次数
             $productViews = ProductView::whereBetween('created_at', $dateRange)
@@ -1206,13 +1204,8 @@ class DashboardService
      */
     private function getVisitorStats(array $dateRange, array $previousDateRange): array
     {
-        $current = ProductView::whereBetween('created_at', $dateRange)
-            ->distinct(['customer_id', 'session_id', 'ip'])
-            ->count();
-
-        $previous = ProductView::whereBetween('created_at', $previousDateRange)
-            ->distinct(['customer_id', 'session_id', 'ip'])
-            ->count();
+        $current  = $this->countDistinctVisitors($dateRange);
+        $previous = $this->countDistinctVisitors($previousDateRange);
 
         $percentage = $this->calculatePercentage($current, $previous);
 
@@ -1321,9 +1314,7 @@ class DashboardService
             $pv = ProductView::whereBetween('created_at', [$startTime, $endTime])->count();
 
             // UV: 独立访客数
-            $uv = ProductView::whereBetween('created_at', [$startTime, $endTime])
-                ->distinct(['customer_id', 'session_id', 'ip'])
-                ->count();
+            $uv = $this->countDistinctVisitors([$startTime, $endTime]);
 
             $pvData[] = $pv;
             $uvData[] = $uv;
@@ -1353,9 +1344,7 @@ class DashboardService
             $days[] = $date->format('m/d');
 
             $pv = ProductView::whereBetween('created_at', [$startTime, $endTime])->count();
-            $uv = ProductView::whereBetween('created_at', [$startTime, $endTime])
-                ->distinct(['customer_id', 'session_id', 'ip'])
-                ->count();
+            $uv = $this->countDistinctVisitors([$startTime, $endTime]);
 
             $pvData[] = $pv;
             $uvData[] = $uv;
@@ -1366,6 +1355,20 @@ class DashboardService
             'pv'     => $pvData,
             'uv'     => $uvData,
         ];
+    }
+
+    /**
+     * 统计独立访客数。通过派生表计数，兼容 PostgreSQL 的多列 DISTINCT。
+     */
+    private function countDistinctVisitors(array $dateRange): int
+    {
+        $distinctVisitors = ProductView::whereBetween('created_at', $dateRange)
+            ->select(['customer_id', 'session_id', 'ip'])
+            ->distinct();
+
+        return (int) DB::query()
+            ->fromSub($distinctVisitors, 'distinct_product_views')
+            ->count();
     }
 
     /**
